@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Receipts index{% endblock %}
+
+{% block body %}
+    <h1>Receipts index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NameRecipe</th>
+                <th>Country</th>
+                <th>Vegetarian</th>
+                <th>Content</th>
+                <th>PreparationTime</th>
+                <th>CookingTime</th>
+                <th>PictureReceipts</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for receipt in receipts %}
+            <tr>
+                <td>{{ receipt.id }}</td>
+                <td>{{ receipt.nameRecipe }}</td>
+                <td>{{ receipt.country }}</td>
+                <td>{{ receipt.vegetarian }}</td>
+                <td>{{ receipt.content }}</td>
+                <td>{{ receipt.preparationTime }}</td>
+                <td>{{ receipt.cookingTime }}</td>
+                <td>{{ receipt.pictureReceipts }}</td>
+                <td>
+                    <a href="{{ path('app_receipts_show', {'id': receipt.id}) }}">show</a>
+                    <a href="{{ path('app_receipts_edit', {'id': receipt.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_receipts_new') }}">Create new</a>
+{% endblock %}

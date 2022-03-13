@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TypesReceipts{% endblock %}
+
+{% block body %}
+    <h1>Edit TypesReceipts</h1>
+
+    {{ include('types_receipts/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_types_receipts_index') }}">back to list</a>
+
+    {{ include('types_receipts/_delete_form.html.twig') }}
+{% endblock %}

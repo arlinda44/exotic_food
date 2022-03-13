@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypesReceipts index{% endblock %}
+
+{% block body %}
+    <h1>TypesReceipts index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NametypeRecipe</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for types_receipt in types_receipts %}
+            <tr>
+                <td>{{ types_receipt.id }}</td>
+                <td>{{ types_receipt.nametypeRecipe }}</td>
+                <td>
+                    <a href="{{ path('app_types_receipts_show', {'id': types_receipt.id}) }}">show</a>
+                    <a href="{{ path('app_types_receipts_edit', {'id': types_receipt.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_types_receipts_new') }}">Create new</a>
+{% endblock %}

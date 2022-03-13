@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!
+{% endblock %}
+
+{% block body %}
+<pre>
+    {{ dump(receipts) }}
+</pre>
+{% for receipt in receipts %}
+<h1>colombo de poulet</h1>
+<ul>
+<li>Cuisses de poulet fermier</li>
+<li>Sel</li>
+<li>Poivre</li>
+<li>Poudres de colombo</li>
+<li>Piment</li>
+<li>Citron vert</li>
+<li>Oignons</li>
+<li>Ciboulette ou Cives</li>
+<li>Fleurs de laurier</li>
+<li>Poivrons</li>
+<li>Courgettes</li>
+<li>Pommes de terre</li>
+<li>Curcuma</li>
+<li>Persil</li>
+<li>Laurier</li>
+</ul>
+<td><img src="{{ asset('uploads/'~ receipt.pictureReceipts) }}" width="100"></td>
+
+{# <p>  </P> #}
+{% endfor %}
+
+{% endblock %}

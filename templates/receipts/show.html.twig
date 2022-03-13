@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Receipts{% endblock %}
+
+{% block body %}
+    <h1>Receipts</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ receipt.id }}</td>
+            </tr>
+            <tr>
+                <th>NameRecipe</th>
+                <td>{{ receipt.nameRecipe }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ receipt.country }}</td>
+            </tr>
+            <tr>
+                <th>Vegetarian</th>
+                <td>{{ receipt.vegetarian }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ receipt.content }}</td>
+            </tr>
+            <tr>
+                <th>PreparationTime</th>
+                <td>{{ receipt.preparationTime }}</td>
+            </tr>
+            <tr>
+                <th>CookingTime</th>
+                <td>{{ receipt.cookingTime }}</td>
+            </tr>
+            <tr>
+                <th>PictureReceipts</th>
+                <td>{{ receipt.pictureReceipts }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_receipts_index') }}">back to list</a>
+
+    <a href="{{ path('app_receipts_edit', {'id': receipt.id}) }}">edit</a>
+
+    {{ include('receipts/_delete_form.html.twig') }}
+{% endblock %}
